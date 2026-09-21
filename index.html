@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000d0e">
+
+<title>os_urgentes_especiales</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--primary:#009ca4;
+--orange:#F7941D;
+--magenta:#EC008C;
+--bg:#000d0e;
+--text:#ff7b00;
+--video:#ffffff;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:var(--bg);
+color:white;
+
+min-height:10vh;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-start;
+
+text-align:center;
+padding:25px;
+}
+
+
+/* DECORACIONES FONDO */
+
+body::before{
+content:'';
+position:fixed;
+width:420px;
+height:420px;
+border-radius:100%;
+background:radial-gradient(circle,var(--primary),transparent 65%);
+top:-120px;
+left:-120px;
+opacity:.18;
+pointer-events:none;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:320px;
+height:320px;
+border-radius:50%;
+background:radial-gradient(circle,var(--primary),transparent 65%);
+bottom:-100px;
+right:-100px;
+opacity:.12;
+pointer-events:none;
+}
+
+
+/* LOGO */
+
+.logo{
+width:140px;
+margin-bottom:18px;
+filter:drop-shadow(0 0 12px rgba(0,156,164,0.5));
+}
+
+
+/* LINEA SUPERIOR */
+
+.top-line{
+width:100%;
+max-width:420px;
+height:3px;
+background:radial-gradient(circle,#009ca4,#000000);
+border-radius:20px;
+margin-bottom:28px;
+}
+
+
+/* TEXTOS */
+
+h1{
+color:var(--text);
+font-weight:700;
+font-size:25px;
+letter-spacing:1px;
+margin-bottom:4px;
+}
+
+h2{
+color:var(--primary);
+font-size:19px;
+font-weight:600;
+margin-top:35px;
+margin-bottom:12px;
+}
+
+
+/* ========================================= */
+/* CONTENEDOR VIDEO */
+/* MISMO TAMAÑO ORIGINAL */
+/* ========================================= */
+
+.video-preview{
+position:relative;
+
+width:100%;
+max-width:420px;
+aspect-ratio:16/9;
+
+margin:12px 0;
+
+box-sizing:border-box;
+
+/* Margen interno */
+padding:5px;
+
+/* MARCO NARANJA */
+border:2px solid rgba(255,122,0,0.85);
+
+/* Fondo del marco */
+background:#00191b;
+
+/* Esquinas */
+border-radius:18px;
+
+/* HALO / SOMBRA NARANJA */
+box-shadow:
+0 0 0 1px rgba(255,255,255,0.05),
+0 0 18px rgba(255,122,0,0.45);
+
+overflow:hidden;
+}
+
+
+/* IMAGEN Y VIDEO DEL MISMO TAMAÑO */
+
+.video-preview img,
+.video-preview video{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:11px;
+}
+
+
+/* IMAGEN */
+
+.video-preview img{
+cursor:pointer;
+display:block;
+}
+
+
+/* VIDEO */
+
+video{
+display:none;
+background:black;
+}
+
+
+/* BOTON PLAY */
+
+.play-button{
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:70px;
+height:70px;
+
+border-radius:50%;
+border:none;
+
+background:rgba(0,0,0,0.65);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+cursor:pointer;
+z-index:10;
+}
+
+.play-button svg{
+fill:white;
+width:32px;
+height:32px;
+}
+
+
+/* IMAGEN INFERIOR */
+
+.footer-img{
+margin-top:35px;
+height:100px;
+}
+
+
+/* LINEAS INFERIORES */
+
+.color-strip{
+display:flex;
+gap:6px;
+justify-content:center;
+
+margin-top:28px;
+
+width:100%;
+max-width:420px;
+}
+
+.color-strip span{
+height:5px;
+border-radius:999px;
+flex:1;
+}
+
+.cs1{
+background:#ff7b00;
+}
+
+.cs2{
+background:#009da3;
+}
+
+.cs3{
+background:#f70083;
+}
+
+.cs4{
+background:#ffd92a;
+}
+
+
+/* BOTON FORMULARIO */
+
+a{
+text-decoration:none;
+
+font-size:18px;
+color:#ffffff;
+
+background-color:#009ca4;
+
+padding:14px 28px;
+
+border-radius:12px;
+
+display:inline-block;
+
+font-weight:bold;
+
+box-shadow:0 0 20px rgba(0,156,164,0.5);
+
+transition:all 0.4s ease;
+
+animation:pulse 2s infinite;
+
+text-shadow:1px 1px 3px rgba(0,0,0,0.3);
+}
+
+
+/* HOVER */
+
+a:hover{
+background-color:#007f85;
+
+transform:scale(1.08) translateY(-2px);
+
+box-shadow:
+0 0 30px rgba(0,156,164,0.8),
+0 0 15px rgba(255,255,255,0.2);
+}
+
+
+/* PULSO ANIMADO */
+
+@keyframes pulse{
+
+0%{
+box-shadow:0 0 20px rgba(0,156,164,0.4);
+}
+
+50%{
+box-shadow:0 0 35px rgba(0,156,164,0.8);
+}
+
+100%{
+box-shadow:0 0 20px rgba(0,156,164,0.4);
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- LOGO -->
+
+<img
+src="izzi.png"
+class="logo"
+draggable="false"
+>
+
+
+<!-- LINEA SUPERIOR -->
+
+<div class="top-line"></div>
+
+
+<!-- TITULO -->
+
+<h1>
+IDENTIFICADOR DE OS URGENTES Y PROYECTOS ESPECIALES
+</h1>
+
+
+<!-- INSTRUCCION -->
+
+<h2>
+POR FAVOR OBSERVE EL VIDEO Y POSTERIORMENTE INGRESE AL FORMULARIO
+</h2>
+
+
+<!-- ========================================= -->
+<!-- VIDEO -->
+<!-- ========================================= -->
+
+<div class="video-preview">
+
+
+<img
+src="imagen.jpg"
+id="previewImg1"
+onclick="playVideo()"
+draggable="false"
+>
+
+
+<button
+class="play-button"
+onclick="playVideo()"
+>
+
+<svg viewBox="0 0 24 24">
+
+<path d="M8 5v14l11-7z"/>
+
+</svg>
+
+</button>
+
+
+<video
+id="video1"
+src="1.mp4"
+controls
+preload="auto"
+controlsList="nodownload noplaybackrate"
+disablePictureInPicture
+>
+</video>
+
+
+</div>
+
+
+<br>
+
+
+<!-- ========================================= -->
+<!-- FORMULARIO -->
+<!-- ========================================= -->
+
+<center>
+
+<a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=4kLKykqtGU2CTD_zcJvYQHlO6vDp04lHv55iyY8UaPRURUVKRTgzSEgyNzNHRkJUWTM3UkVGVUk4ViQlQCNjPTEu">
+
+FORMULARIO
+
+</a>
+
+</center>
+
+
+<br>
+
+
+<!-- ========================================= -->
+<!-- LINEAS DE COLOR -->
+<!-- ========================================= -->
+
+<div class="color-strip">
+
+<span class="cs1"></span>
+
+<span class="cs2"></span>
+
+<span class="cs3"></span>
+
+<span class="cs4"></span>
+
+</div>
+
+
+<script>
+
+
+/* REPRODUCIR VIDEO */
+
+function playVideo(){
+
+const video=document.getElementById("video1");
+
+const img=document.getElementById("previewImg1");
+
+const btn=document.querySelector(".play-button");
+
+
+img.style.display="none";
+
+btn.style.display="none";
+
+video.style.display="block";
+
+video.play();
+
+}
+
+
+/* BLOQUEAR ARRASTRAR IMAGENES Y VIDEO */
+
+document.addEventListener("dragstart",function(e){
+
+e.preventDefault();
+
+});
+
+
+</script>
+
+
+</body>
+</html>
